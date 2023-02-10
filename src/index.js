@@ -5,15 +5,16 @@ const middlewares = jsonServer.defaults();
 
 const port = process.env.PORT || 3000;
 
-server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', '*')
-    next()
-})
+server.use((raq, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  next();
+});
 
 server.use(router);
-server.use(middlewares)
+server.use(middlewares);
 
-server.listen(port,() =>{
-    console.log('JSON Server is running')
-})
+server.listen(port, () => {
+  console.log("JSON server is running");
+});
